@@ -47,6 +47,9 @@ ENV TORCH_CUDA_ARCH_LIST="6.0 6.1 7.0+PTX 7.5+PTX"
 RUN pip3 install --no-cache-dir torch-scatter==latest+${CUDA} torch-sparse==latest+${CUDA} torch-cluster==latest+${CUDA} torch-geometric -f https://pytorch-geometric.com/whl/torch-${TORCH}.html
 RUN pip3 install tqdm 
 RUN useradd -ms /bin/bash gqsat_user
+# Chown all the files to the user.
+RUN chown -R gqsat_user /home/gqsat_user
+
 USER gqsat_user
 WORKDIR /home/gqsat_user/gqsat
 
