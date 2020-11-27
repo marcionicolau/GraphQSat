@@ -37,18 +37,9 @@ ENV CPATH /usr/local/cuda/include
 ENV LD_LIBRARY_PATH /usr/local/cuda/lib64:/home/gqsat_user/gqsat/minisat/build/release/lib:$LD_LIBRARY_PATH
 ENV TORCH_CUDA_ARCH_LIST="6.0 6.1 7.0+PTX 7.5+PTX"
 
-#RUN pip3 install --verbose --no-cache-dir torch_scatter
-#RUN pip3 install --verbose --no-cache-dir torch-sparse
-#RUN pip3 install --verbose --no-cache-dir torch-cluster
-#RUN pip3 install torch-geometric
-
-#RUN pip3 install tqdm
-
 RUN pip3 install --no-cache-dir torch-scatter==latest+${CUDA} torch-sparse==latest+${CUDA} torch-cluster==latest+${CUDA} torch-geometric -f https://pytorch-geometric.com/whl/torch-${TORCH}.html
 RUN pip3 install tqdm 
 RUN useradd -ms /bin/bash gqsat_user
-# Chown all the files to the user.
-RUN chown -R gqsat_user /home/gqsat_user
 
 USER gqsat_user
 WORKDIR /home/gqsat_user/gqsat
