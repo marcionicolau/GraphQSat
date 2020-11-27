@@ -29,7 +29,7 @@ ENV CUDA cu101
 
 RUN pip3 install --upgrade pip
 RUN pip3 install numpy scipy pyyaml matplotlib ruamel.yaml networkx tensorboardX
-RUN pip3 install torch==${TORCH} torchvision
+RUN pip3 install torch==${TORCH}+${CUDA} torchvision==0.8.1+${CUDA} -f https://download.pytorch.org/whl/torch_stable.html
 RUN pip3 install gym
 
 ENV CUDA_HOME /usr/local/cuda
