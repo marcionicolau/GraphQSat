@@ -1,0 +1,11 @@
+python3 evaluate.py \
+  --logdir ./log \
+  --env-name sat-v0 \
+  --core-steps -1 \
+  --eps-final 0.0 \
+  --eval-time-limit 100000000000000 \
+  --no_restarts \
+  --test_time_max_decisions_allowed 500 \
+  --eval-problems-paths ./data/uf50-218-tvt/validation \
+  --model-dir ./runs/Nov29_19-33-43_556c2654ddaa \
+  --model-checkpoint model_1000.chkp
